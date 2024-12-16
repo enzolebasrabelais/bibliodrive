@@ -10,20 +10,31 @@
 <body>
 <?php
 require_once('connexion_bibliodrive.php');
-$stmt = $connexion->prepare("SELECT nom, prenom, detail, photo FROM livre INNER JOIN auteur ON (livre.noauteur = auteur.noauteur) where livre.nolivre=:nolivre");
+$stmt = $connexion->prepare("SELECT nom, prenom, detail, isbn13, photo FROM livre INNER JOIN auteur ON (livre.noauteur = auteur.noauteur) where livre.nolivre=:nolivre");
 $nolivre = $_GET["nolivre"];
 $stmt->bindValue(":nolivre", $nolivre); // pas de troisième paramètre STR par défaut
 $stmt->setFetchMode(PDO::FETCH_OBJ);
 // Les résultats retournés par la requête seront traités en 'mode' objet
 $stmt->execute();
 $enregistrement = $stmt->fetch();
+?>
+<div class="row">
+<div class="col-sm-9">
+<?php
 echo "Auteur : ".$enregistrement->prenom." ", $enregistrement->nom;
 echo "<BR>";
+echo "<BR>";
+echo "ISBN13 : ".$enregistrement->isbn13;
 echo "<BR>";
 echo "Résumé du livre";
 echo "<BR>";
 echo "<BR>";
-echo "ISBN13 : ".$enregistrement->detail;
+echo $enregistrement->detail;
 ?>
+</div>
+<div class="col-sm-3">
+<img src=".\images\<?php echo $enregistrement->photo?>" class="d-block w-100">
+</div>
+</div>
 </body>
 </html>
