@@ -47,11 +47,29 @@ if ($enregistrement->dateretour == NULL) {
 } else {
     echo "Non disponible";
 }
+
+if (isset($_SESSION["prenom"]))
+{
+  echo '<form method="POST">';
+  echo '<input type="submit" name="btn-ajoutpanier" class="btn btn-success btn-lg" value="Ajouter au panier"></input>';
+  echo '</form>';
+}else{
+  echo '<p class="text-primary">Pour pouvoir réserver ce livre vous devez posséder un compte et vous identifier !</p>';
+}
+
+if(!isset($_SESSION['panier'])){
+// Initialisation du panier
+$_SESSION['panier'] = array();
+}
+
+// On ajoute les entrées dans le tableau
+if(isset($_POST['btn-ajoutpanier'])){
+array_push($_SESSION['panier'], $enregistrement->titre);  
+echo "Livre ajouté à votre panier :)";
+}
 ?>
-</div>
-<div class="col-sm-3">
-<a href="ajout_panier.php" type="button" class="btn btn-primary"> Emprunter (ajout au panier) </a>
-</div>
 </div>
 </body>
 </html>
+
+
