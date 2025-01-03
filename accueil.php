@@ -5,7 +5,7 @@ include ('entete.html')
 ?>
 </div>
 <div class="col-sm-3">
-
+<img src=".\images\biblio.jpg">
 </div>
 </div>
 

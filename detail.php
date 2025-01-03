@@ -8,6 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+<div class="row">
+<div class="col-sm-9">
 <?php
 require_once('connexion_bibliodrive.php');
 $stmt = $connexion->prepare("SELECT nom, prenom, dateretour, detail, isbn13, anneeparution, photo FROM livre INNER JOIN auteur ON (livre.noauteur = auteur.noauteur) LEFT OUTER JOIN emprunter ON (livre.nolivre = emprunter.nolivre) where livre.nolivre=:nolivre");
@@ -17,10 +20,7 @@ $stmt->setFetchMode(PDO::FETCH_OBJ);
 // Les résultats retournés par la requête seront traités en 'mode' objet
 $stmt->execute();
 $enregistrement = $stmt->fetch();
-?>
-<div class="row">
-<div class="col-sm-9">
-<?php
+
 echo "Auteur : ".$enregistrement->prenom." ", $enregistrement->nom;
 echo "<BR>";
 echo "<BR>";
@@ -33,8 +33,15 @@ echo $enregistrement->detail;
 echo "<BR>";
 echo "<BR>";
 echo "Date de parution : ".$enregistrement->anneeparution;
-echo "<BR>";
-echo "<BR>";
+?>
+</div>
+<div class="col-sm-3">
+<img src=".\images\<?php echo $enregistrement->photo?>" class="d-block w-100">
+</div>
+</div>
+<div class="row">
+<div class="col-sm-7">
+<?php
 if ($enregistrement->dateretour == NULL) {
     echo "Disponible";
 } else {
@@ -43,7 +50,7 @@ if ($enregistrement->dateretour == NULL) {
 ?>
 </div>
 <div class="col-sm-3">
-<img src=".\images\<?php echo $enregistrement->photo?>" class="d-block w-100">
+<a href="ajout_panier.php" type="button" class="btn btn-primary"> Emprunter (ajout au panier) </a>
 </div>
 </div>
 </body>
