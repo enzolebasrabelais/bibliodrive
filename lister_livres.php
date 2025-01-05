@@ -21,7 +21,7 @@ $stmt->setFetchMode(PDO::FETCH_OBJ);
 $stmt->execute();
 while($enregistrement = $stmt->fetch())
 {
-echo '<h1>',"<a href='detail.php?nolivre=".$enregistrement->nolivre."'>".$enregistrement->titre, ' ', ' ', '(', $enregistrement->anneeparution, ')', "</a>",'</h1>';
+echo '<h1>',"<a href='structure_detail.php?nolivre=".$enregistrement->nolivre."'>".$enregistrement->titre, ' ', ' ', '(', $enregistrement->anneeparution, ')', "</a>",'</h1>';
 }
 ?>
 </div>

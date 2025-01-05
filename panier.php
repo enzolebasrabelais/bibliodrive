@@ -38,8 +38,8 @@ session_start();
               }
 
         if(isset($_POST['valider'])){
-          require_once('connexion.php');
-          $mel = $_SESSION['mel'];
+          require_once('connexion_bibliodrive.php');
+          $mel = $_SESSION['identifia'];
           $dateemprunt = date("Y-m-d");
       
           // Boucle sur tous les livres dans le panier

@@ -12,7 +12,7 @@ include ('entete.html')
 <div class="row">
 <div class="col-sm-9">
 <?php
-include ('carrousel.php')
+include ('detail.php')
 ?>
 </div>
 <div class="col-sm-3">
