@@ -8,7 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
+<?php
+session_start();
+?>
 <div class="row">
 <div class="col-sm-9">
 <?php
@@ -48,28 +50,8 @@ if ($enregistrement->dateretour == NULL) {
     echo "Non disponible";
 }
 
-if (isset($_SESSION["prenom"]))
-{
-  echo '<form method="POST">';
-  echo '<input type="submit" name="btn-ajoutpanier" class="btn btn-success btn-lg" value="Ajouter au panier"></input>';
-  echo '</form>';
-}else{
-  echo '<p class="text-primary">Pour pouvoir réserver ce livre vous devez posséder un compte et vous identifier !</p>';
-}
+echo '<h1>',"<button class='btn btn-primary'>","<a href='panier.php?nolivre=".$nolivre."'>", "</a></button>",'</h1>';
 
-if(!isset($_SESSION['panier'])){
-// Initialisation du panier
-$_SESSION['panier'] = array();
-}
 
-// On ajoute les entrées dans le tableau
-if(isset($_POST['btn-ajoutpanier'])){
-array_push($_SESSION['panier'], $enregistrement->titre);  
-echo "Livre ajouté à votre panier :)";
-}
-?>
-</div>
-</body>
-</html>
 
 

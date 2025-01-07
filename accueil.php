@@ -17,7 +17,7 @@ include ('carrousel.php')
 </div>
 <div class="col-sm-3">
 <?php
-include ('traitement_connexion.php')
+include ('se_connecter.php')
 ?>
 </div>
 </div>
