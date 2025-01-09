@@ -12,11 +12,14 @@ $stmt->setFetchMode(PDO::FETCH_OBJ);
 $stmt->execute();
 $enregistrement = $stmt->fetch();
 
+$_SESSION["connecte"] = false;
 
 if ($enregistrement) {
 $_SESSION["identifiant"] = $_POST["identifiant"];
 $_SESSION["motdepasse"] = $_POST["motPasse"];
+$_SESSION["prenom"] = $enregistrement->prenom;
+$_SESSION["nom"] = $enregistrement->nom;
+$_SESSION["connecte"] = true;
 }
-echo $enregistrement->prenom." ".$enregistrement->nom;
-echo "<BR>";
-echo $enregistrement->mel;
+
+

@@ -47,11 +47,14 @@ echo "Date de parution : ".$enregistrement->anneeparution;
 if ($enregistrement->dateretour == NULL) {
     echo "Disponible";
 } else {
-    echo "Non disponible";
+     echo "Non disponible";
 }
 
-echo '<h1>',"<button class='btn btn-primary'>","<a href='panier.php?nolivre=".$nolivre."'>", "</a></button>",'</h1>';
+echo "<BR>";
+echo "<BR>";
 
-
-
-
+if ($_SESSION["connecte"]) {
+    echo "<button class='btn btn-primary'>Ajout au panier","<a  type='button' href='panier.php?nolivre=".$nolivre."'>","Ajout au panier", "</a>","</button>";
+} else {
+    echo "Connectez-vous pour pouvoir réserver ce livre.";
+}

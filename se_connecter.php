@@ -9,24 +9,32 @@
 </head>
 <body>
 <?php
-echo '
-<form action="traitement_connexion.php" method="post" class="form-control" >
-Se connecter
-<BR>
-<div class="mb-3 mt-3">
- Identifiant
- <BR>
- <input type="text" placeholder="" name="identifiant">
- <BR>
-Mot de passe
- <BR>
- <input type="text" placeholder="" name="motPasse">
- <BR>
- <BR>
-<button class="btn btn-primary" type="submit">Connexion</button>
-</div>
-</form>';
 
+session_start();
+
+if ($_SESSION["connecte"]) {
+    echo $_SESSION["prenom"]." ".$_SESSION["nom"];
+    echo "<BR>";
+    echo $_SESSION["identifiant"];
+} else {
+    echo '
+    <form action="traitement_connexion.php" method="post" class="form-control" >
+    Se connecter
+    <BR>
+    <div class="mb-3 mt-3">
+    Identifiant
+    <BR>
+    <input type="text" placeholder="" name="identifiant">
+    <BR>
+    Mot de passe
+    <BR>
+    <input type="text" placeholder="" name="motPasse">
+    <BR>
+    <BR>
+    <button class="btn btn-primary" type="submit">Connexion</button>
+    </div>
+    </form>';
+}
 
 ?>
 

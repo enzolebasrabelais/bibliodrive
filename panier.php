@@ -24,9 +24,4 @@ if(!empty($_SESSION['panier'])) {
  foreach ($_SESSION['panier'] as $value) {
   echo $enregistrement->prenom,' ', $enregistrement->nom$enregistrement->titre, ' ', ' ', '(', $enregistrement->anneeparution, ')','</h1>', '<br>';
 }
-
-    
-        
-        
-
-       
+?>
