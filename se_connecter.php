@@ -10,12 +10,18 @@
 <body>
 <?php
 
-session_start();
+//session_start();
 
-if ($_SESSION["connecte"]) {
+if (isset($_SESSION["connecte"])) {
     echo $_SESSION["prenom"]." ".$_SESSION["nom"];
     echo "<BR>";
     echo $_SESSION["identifiant"];
+    echo "<BR>";
+    echo "<BR>";
+    echo '
+    <form action="" method="post">
+    <input type="submit" class="btn btn-primary" name="btndeco" value="Déconnexion" >
+    </form>';
 } else {
     echo '
     <form action="traitement_connexion.php" method="post" class="form-control" >
@@ -34,6 +40,11 @@ if ($_SESSION["connecte"]) {
     <button class="btn btn-primary" type="submit">Connexion</button>
     </div>
     </form>';
+    
+}
+
+if (isset($_POST['btndeco'])) {
+    session_destroy();
 }
 
 ?>

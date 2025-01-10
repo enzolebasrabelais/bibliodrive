@@ -53,8 +53,8 @@ if ($enregistrement->dateretour == NULL) {
 echo "<BR>";
 echo "<BR>";
 
-if ($_SESSION["connecte"]) {
-    echo "<button class='btn btn-primary'>Ajout au panier","<a  type='button' href='panier.php?nolivre=".$nolivre."'>","Ajout au panier", "</a>","</button>";
+if (isset($_SESSION["connecte"])) {
+    echo "<a class='btn btn-primary' href='panier.php?nolivre=".$nolivre."'>","Ajout au panier", "</a>";
 } else {
     echo "Connectez-vous pour pouvoir réserver ce livre.";
 }
