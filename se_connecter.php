@@ -45,6 +45,28 @@ if (isset($_SESSION["connecte"])) {
 
 if (isset($_POST['btndeco'])) {
     session_destroy();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 ?>
