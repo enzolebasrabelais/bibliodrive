@@ -58,3 +58,9 @@ if (isset($_SESSION["connecte"])) {
 } else {
     echo "Connectez-vous pour pouvoir réserver ce livre.";
 }
+?>
+</div>
+</div>
+
+</body>
+</html>
