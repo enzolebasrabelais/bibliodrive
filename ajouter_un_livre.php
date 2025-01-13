@@ -16,7 +16,7 @@ if(!isset($_POST['btnAjoutLivre']))
 }
 else {
 /* L'utilisateur a cliqué sur Envoyer, l'entrée btnEnvoyer <> vide, on traite le formulaire */
-    $stmt = $connexion->prepare("INSERT INTO livre (noauteur, titre, isbn13, anneeparution, dateajout, detail, photo) VALUES (:noregion, :nomregion)");
+    $stmt = $connexion->prepare("INSERT INTO livre (noauteur, titre, isbn13, anneeparution, dateajout, detail, photo) VALUES (:noauteur, :titre, :isbn13, :anneeparution, :dateajout, :detail, photo )");
     $noauteur = $_POST["txtAuteur"];
     $titre = $_POST["txtTitre"];
     $isbn13 = $_POST["txtIsbn"];

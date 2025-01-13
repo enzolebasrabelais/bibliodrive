@@ -33,13 +33,13 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src=".\images\<?php echo $couverture1->photo ?>" alt="<?php echo $couverture1->titre ?>" class="d-block w-50">
+        <img src=".\images\<?php echo $couverture1->photo ?>" alt="<?php echo $couverture1->titre ?>" class="d-block w-100">
       </div>
       <div class="carousel-item">
-        <img src=".\images\<?php echo $couverture2->photo ?>" alt="<?php echo $couverture2->titre ?>" class="d-block w-50">
+        <img src=".\images\<?php echo $couverture2->photo ?>" alt="<?php echo $couverture2->titre ?>" class="d-block w-100">
       </div>
       <div class="carousel-item">
-        <img src=".\images\<?php echo $couverture3->photo ?>" alt="<?php echo $couverture3->titre ?>" class="d-block w-50">
+        <img src=".\images\<?php echo $couverture3->photo ?>" alt="<?php echo $couverture3->titre ?>" class="d-block w-100">
       </div>
     </div>
     
