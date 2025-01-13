@@ -10,7 +10,7 @@
 <body>
 <?php
 
-//session_start();
+session_start();
 
 if (isset($_SESSION["connecte"])) {
     echo $_SESSION["prenom"]." ".$_SESSION["nom"];

@@ -3,7 +3,7 @@ session_start();
 
 require_once('connexion_bibliodrive.php');
 
-$stmt = $connexion->prepare("SELECT mel, motdepasse, nom, prenom FROM utilisateur where utilisateur.mel=:mel AND utilisateur.motdepasse=:motdepasse");
+$stmt = $connexion->prepare("SELECT mel, motdepasse, nom, prenom, profil FROM utilisateur where utilisateur.mel=:mel AND utilisateur.motdepasse=:motdepasse");
 
  $stmt->bindValue(":mel", $_POST["identifiant"]);
 $stmt->bindValue(":motdepasse",$_POST["motPasse"]); // pas de troisième paramètre STR par défaut
@@ -19,7 +19,18 @@ $_SESSION["identifiant"] = $_POST["identifiant"];
 $_SESSION["motdepasse"] = $_POST["motPasse"];
 $_SESSION["prenom"] = $enregistrement->prenom;
 $_SESSION["nom"] = $enregistrement->nom;
+$_SESSION["profil"] = $enregistrement->profil;
 $_SESSION["connecte"] = true;
 }
 
+if ($_SESSION["profil"] == 'admin') {
+    header("Location: accueil_admin.php");
+} 
+
+if ($_SESSION["profil"] == 'client') {
+    header("Location: accueil.php");
+}
+
+
+?>
 

@@ -11,5 +11,5 @@ foreach ($_SESSION['panier'] as $key=>$value) {
   echo "<BR>";
 }
 
-echo "<a class='btn btn-primary' href='validation_panier.php?nolivre=".$key."'>","Valider mon panier", "</a>";
+echo "<a class='btn btn-primary' href='validation_panier.php'>","Valider mon panier", "</a>";
 ?>

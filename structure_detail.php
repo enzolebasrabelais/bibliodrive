@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-sm-9">
 <?php
-include ('entete.html')
+include ('entete.html');
 ?>
 </div>
 <div class="col-sm-3">
@@ -12,12 +12,12 @@ include ('entete.html')
 <div class="row">
 <div class="col-sm-9">
 <?php
-include ('detail.php')
+include ('detail.php');
 ?>
 </div>
 <div class="col-sm-3">
 <?php
-include ('se_connecter.php')
+include ('se_connecter.php');
 ?>
 </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-sm-9">
 <?php
-include ('entete.html')
+include ('entete_admin.html')
 ?>
 </div>
 <div class="col-sm-3">
@@ -12,7 +12,7 @@ include ('entete.html')
 <div class="row">
 <div class="col-sm-9">
 <?php
-include ('carrousel.php');
+include ('ajouter_un_membre.php');
 ?>
 </div>
 <div class="col-sm-3">

@@ -18,4 +18,5 @@ $enregistrement = $stmt->fetch();
 
  $_SESSION['panier'][$nolivre] = $enregistrement->prenom.' '.$enregistrement->nom.' '.'-'.' '.$enregistrement->titre.' '.'('.$enregistrement->anneeparution.')';
 
+ header("Location: accueil.php");
 ?>
