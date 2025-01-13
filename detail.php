@@ -15,7 +15,7 @@ session_start();
 <div class="col-sm-9">
 <?php
 require_once('connexion_bibliodrive.php');
-$stmt = $connexion->prepare("SELECT nom, prenom, dateretour, detail, isbn13, anneeparution, photo FROM livre INNER JOIN auteur ON (livre.noauteur = auteur.noauteur) LEFT OUTER JOIN emprunter ON (livre.nolivre = emprunter.nolivre) where livre.nolivre=:nolivre");
+$stmt = $connexion->prepare("SELECT nom, prenom, dateretour, dateemprunt, detail, isbn13, anneeparution, photo FROM livre INNER JOIN auteur ON (livre.noauteur = auteur.noauteur) LEFT OUTER JOIN emprunter ON (livre.nolivre = emprunter.nolivre) where livre.nolivre=:nolivre");
 $nolivre = $_GET["nolivre"];
 $stmt->bindValue(":nolivre", $nolivre); // pas de troisième paramètre STR par défaut
 $stmt->setFetchMode(PDO::FETCH_OBJ);
@@ -44,7 +44,7 @@ echo "Date de parution : ".$enregistrement->anneeparution;
 <div class="row">
 <div class="col-sm-7">
 <?php
-if ($enregistrement->dateretour == NULL) {
+if ($enregistrement->dateemprunt == NULL) {
     echo "Disponible";
 } else {
      echo "Non disponible";
