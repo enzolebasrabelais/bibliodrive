@@ -11,7 +11,7 @@ if(!isset($_POST['btnAjoutLivre']))
     Année de Parution : <input type="text" name="txtParution"><br><br>
     Résumé : <input type="text" name="txtResume"><br><br>
     Image : <input type="text" name="txtImage"><br><br>
-    <input type="submit" name="btnAjoutLivre" value="Ajouter le livre" >
+    <input class="btn btn-primary" type="submit" name="btnAjoutLivre" value="Ajouter le livre" >
     </form>';
 }
 else {
