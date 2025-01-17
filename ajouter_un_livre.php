@@ -24,10 +24,10 @@ if ($_SESSION["connecte"] == true) {
         }
         echo '
         </select><br><br>
-        Titre : <input type="text" name="txtTitre"><br><br>
-        ISBN13 : <input type="text" name="txtIsbn"><br><br>
-        Année de Parution : <input type="text" name="txtParution"><br><br>
-        Résumé : <input type="text" name="txtResume"><br><br>
+        Titre : <input type="text" name="txtTitre" required><br><br>
+        ISBN13 : <input type="text" name="txtIsbn" required><br><br>
+        Année de Parution : <input type="text" name="txtParution" required><br><br>
+        Résumé : <input type="text" name="txtResume" required><br><br>
         Image : <input type="text" name="txtImage"><br><br>
         <input class="btn btn-primary" type="submit" name="btnAjoutLivre" value="Ajouter le livre" >
         </form>';

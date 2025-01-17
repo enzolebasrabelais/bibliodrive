@@ -30,11 +30,11 @@ if (isset($_SESSION["connecte"])) {
     <div class="mb-3 mt-3">
     Identifiant
     <BR>
-    <input type="text" placeholder="" name="identifiant">
+    <input type="text" placeholder="" name="identifiant" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
     <BR>
     Mot de passe
     <BR>
-    <input type="text" placeholder="" name="motPasse">
+    <input type="text" placeholder="" name="motPasse" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
     <BR>
     <BR>
     <button class="btn btn-primary" type="submit">Connexion</button>

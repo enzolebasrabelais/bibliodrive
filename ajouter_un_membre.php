@@ -1,18 +1,18 @@
 <?php
 require_once('connexion_bibliodrive.php');
 session_start();
-if ($_SESSION["connecte"] == true) {
+if ($_SESSION["connecte"] == true && $_SESSION["profil"] == 'admin') {
     if(!isset($_POST['btnAjoutMembre'])) 
     {/* L'entrée btnAjoutMembre est vide = le formulaire n'a pas été posté, on affiche le formulaire */
         echo '
         <form action="" method="post">
-        Mel : <input type="text" name="txtMel"><br><br>
-        Mot de passe : <input type="text" name="txtMdp"><br><br>
-        Nom : <input type="text" name="txtNom"><br><br>
-        Prénom : <input type="text" name="txtPrenom"><br><br>
-        Adresse : <input type="text" name="txtAdresse"><br><br>
-        Ville : <input type="text" name="txtVille"><br><br>
-        Code postal : <input type="text" name="txtCode"><br><br>
+        Mel : <input type="text" name="txtMel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
+        Mot de passe : <input type="text" name="txtMdp" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
+        Nom : <input type="text" name="txtNom" required><br><br>
+        Prénom : <input type="text" name="txtPrenom" required><br><br>
+        Adresse : <input type="text" name="txtAdresse" required><br><br>
+        Ville : <input type="text" name="txtVille" required><br><br>
+        Code postal : <input type="text" name="txtCode" required><br><br>
         <input class="btn btn-primary" type="submit" name="btnAjoutMembre" value="Créer le membre" >
         </form>';
     }
