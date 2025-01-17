@@ -6,21 +6,24 @@ $rqa = $connexion->prepare("SELECT noauteur, nom, prenom FROM auteur");
 $rqa->setFetchMode(PDO::FETCH_OBJ);
 // Les résultats retournés par la requête seront traités en 'mode' objet
 $rqa->execute();
-while($enregistrement = $rqa->fetch()) 
-{
-$nomA = $enregistrement->nom;
-$prenomA = $enregistrement->prenom;
-$numeroA = $enregistrement->noauteur;
 
-
-}
 
 if ($_SESSION["connecte"] == true) {
     if(!isset($_POST['btnAjoutLivre'])) 
     {/* L'entrée btnEnvoyer est vide = le formulaire n'a pas été posté, on affiche le formulaire */
         echo '
         <form action="" method="post">
-        Auteur : <select name="txtAuteur"> <option value='.$numeroA.'>'.$prenomA.' '.$nomA.'</option></select><br><br>
+        Auteur : <select name="txtAuteur">';
+        while($enregistrement = $rqa->fetch()) {
+            $nomA = $enregistrement->nom;
+            $prenomA = $enregistrement->prenom;
+            $numeroA = $enregistrement->noauteur;
+            
+             echo '<option value=',$numeroA,'> ',$prenomA.' '.$nomA,'</option>';
+
+        }
+        echo '
+        </select><br><br>
         Titre : <input type="text" name="txtTitre"><br><br>
         ISBN13 : <input type="text" name="txtIsbn"><br><br>
         Année de Parution : <input type="text" name="txtParution"><br><br>
@@ -43,7 +46,7 @@ if ($_SESSION["connecte"] == true) {
  
         $stmt->bindValue(':noauteur', $noauteur, PDO::PARAM_INT);
         $stmt->bindValue(':titre', $titre, PDO::PARAM_STR);
-        $stmt->bindValue(':nomregion', $isbn13, PDO::PARAM_STR);
+        $stmt->bindValue(':isbn13', $isbn13, PDO::PARAM_STR);
         $stmt->bindValue(':anneeparution', $anneeparution, PDO::PARAM_INT);
         $stmt->bindValue(':dateajout', $dateajout, PDO::PARAM_STR);
         $stmt->bindValue(':detail', $detail, PDO::PARAM_STR);
